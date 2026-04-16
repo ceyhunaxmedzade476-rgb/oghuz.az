@@ -41,9 +41,9 @@ districtNames.forEach((name, index) => {
         mapUrl: mapUrl,
         desc: `${name} rayonu, Azərbaycanın təkrarsız gözəlliklər diyarlarından biridir. Bu bölgə spesifik landşaftı, yerli tarixi detalları və səmimi qonaqpərvərliyi ilə həm yerli, həm də xarici ziyarətçiləri daim özünə cəlb edir. Özünüz də xəritəyə baxaraq bu gözəl rayonun tam koordinatlarını kəşf edə bilərsiniz.`,
         places: [
-            { img: imagesPool[(index + 3) % imagesPool.length], title: `${name} Bölgəsindən Mənzərə` },
-            { img: imagesPool[(index + 5) % imagesPool.length], title: `Təbiətin Göstərdiyi Gözəllik` },
-            { img: imagesPool[(index + 7) % imagesPool.length], title: `Sakinlik Axtaranlar Üçün` }
+            { img: imagesPool[(index + 3) % imagesPool.length], title: `${name} Tarixi Mərkəzi` },
+            { img: imagesPool[(index + 5) % imagesPool.length], title: `${name} Təbiət Qoruğu` },
+            { img: imagesPool[(index + 7) % imagesPool.length], title: `Məşhur İstirahət Məkanı` }
         ]
     };
 });
@@ -112,8 +112,9 @@ function selectDistrict(id, buttonEl) {
             <div class="place-img-container">
                 <img src="${place.img}" alt="${place.title}">
             </div>
-            <!-- sadəcə şəkil tələb elədiyiniz üçün info silinib, amma başlıq saxlaya bilərik: -->
-            <!-- <div class="place-info"><h4>${place.title}</h4></div> -->
+            <div class="place-info" style="padding: 15px;">
+                <h4 style="font-size: 1.1rem; color: #1e293b; text-align: center; margin:0;">${place.title}</h4>
+            </div>
         `;
         placesGridEl.appendChild(card);
     });
