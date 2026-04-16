@@ -1,53 +1,55 @@
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mənim Saytım</title>
-    <style>
-        body {
-            /* Açıq rəngli fon */
-            background-color: #f8fafc; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #334155;
-            
-            /* Ortada yerləşdirmək üçün */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            background-color: #ffffff;
-            padding: 40px 50px;
-            border-radius: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        h1 {
-            color: #0f172a;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 2rem;
-        }
-
-        p {
-            margin-bottom: 0;
-            color: #475569;
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-    </style>
+    <title>Azərbaycan Rayonları - Gəzməli Yerlər</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Mənim Saytım</h1>
-        <p>İstədiyiniz kimi açıq rəngli fona sahib, ortalanmış, çox sadə və təmiz kodla yazılmış veb-sayt.</p>
+    <header class="main-header">
+        <h1>Azərbaycanı Kəşf Et</h1>
+        <p>Rayonları seçin və onların gəzməli yerləri ilə tanış olun</p>
+    </header>
+
+    <div class="app-container">
+        <!-- Rayon Seçimi Menyu (Kənar Panel) -->
+        <aside class="sidebar">
+            <h2>Rayonlar</h2>
+            <ul id="district-list" class="district-list">
+                <!-- JavaScript ilə doldurulacaq -->
+            </ul>
+        </aside>
+
+        <!-- Əsas Məzmun -->
+        <main class="content-area">
+            <div id="welcome-message" class="welcome-message">
+                <h2>Bölgələrimizin Gözəllikləri</h2>
+                <p>Məlumat görmək və gəzməli yerləri kəşf etmək üçün sol menyudan bir rayon seçin.</p>
+            </div>
+
+            <!-- Seçilmiş rayonun detalları burada görünəcək -->
+            <div id="district-details" class="district-details hidden">
+                <div class="hero-image-container">
+                    <img id="district-main-img" src="" alt="">
+                    <div class="hero-overlay">
+                        <h2 id="district-name">Rayon Adı</h2>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <p id="district-desc" class="description">Məlumat</p>
+                    
+                    <h3 class="section-title">Gəzməli və Görməli Yerlər</h3>
+                    <div id="places-grid" class="places-grid">
+                        <!-- Kartlar JavaScript ilə bura əlavə ediləcək -->
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
