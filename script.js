@@ -194,6 +194,8 @@ function selectDistrict(id, buttonEl) {
                 <h4 style="font-size: 1.1rem; color: #1e293b; text-align: center; margin:0;">${place.title}</h4>
             </div>
         `;
+        card.style.cursor = 'pointer';
+        card.onclick = () => openModal(place.img, place.title);
         placesGridEl.appendChild(card);
     });
 
@@ -219,3 +221,28 @@ searchInput.addEventListener('input', (e) => {
 
 // İlkin işə salma
 renderDistrictsList();
+
+// === Modalı İdarə Etmək Üçün Kodlar ===
+const modalEl = document.getElementById('image-modal');
+const modalImgEl = document.getElementById('modal-img');
+const modalCaptionEl = document.getElementById('modal-caption');
+const closeModalBtn = document.getElementById('close-modal');
+
+function openModal(imgSrc, title) {
+    modalImgEl.src = imgSrc;
+    modalCaptionEl.textContent = title;
+    modalEl.classList.remove('hidden');
+}
+
+function closeModal() {
+    modalEl.classList.add('hidden');
+}
+
+closeModalBtn.addEventListener('click', closeModal);
+
+// Modaldan kənara (qaranlıq fona) vuranda modalı bağla
+modalEl.addEventListener('click', (e) => {
+    if (e.target === modalEl) {
+        closeModal();
+    }
+});
