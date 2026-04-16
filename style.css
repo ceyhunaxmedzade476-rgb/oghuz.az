@@ -1,231 +1,277 @@
-/* Base Reset */
+:root {
+    --primary: #e11d48; /* Gözəl qırmızı */
+    --primary-hover: #be123c;
+    --bg-color: linear-gradient(135deg, #1e3a8a 0%, #7f1d1d 100%); /* Göy və Qırmızı font */
+    --box-bg: rgba(255, 255, 255, 0.9);
+    --text-main: #0f172a;
+    --text-muted: #334155;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Göy və Qırmızı rənglərdən ibarət gerçək arxa fon şəkli */
+    background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background-attachment: fixed;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-header {
+    background: var(--box-bg);
+    backdrop-filter: blur(10px);
+    padding: 15px 40px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    text-align: center;
+    z-index: 10;
+}
+
+.main-header h1 {
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+}
+
+.main-header p {
+    color: var(--text-muted);
+}
+
+.app-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background: var(--box-bg);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255,255,255,0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.search-box {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2);
+}
+
+.district-list {
+    list-style: none;
+    overflow-y: auto;
+    padding: 15px;
+    flex: 1;
+}
+
+.district-list::-webkit-scrollbar {
+    width: 6px;
+}
+.district-list::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.district-btn {
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.district-btn:hover {
+    background-color: rgba(255,255,255,0.5);
+    border-color: rgba(0,0,0,0.1);
+    transform: translateX(4px);
+}
+
+.district-btn.active {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+    transform: translateX(0);
+}
+
+/* Content Area */
+.content-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px;
+    position: relative;
     scroll-behavior: smooth;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f8fafc;
-}
-
-h1, h2, h3 {
-    line-height: 1.2;
-}
-
-a {
-    text-decoration: none;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    /* Gözəl bir şelale/fitoz şəkli fon üçün */
-    background: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    position: relative;
+.welcome-message {
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.welcome-message h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.district-details {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-image-container {
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(10, 40, 20, 0.45); /* Qaranlıq yaşıl/qara maska */
-    z-index: 1;
+    padding: 60px 40px 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-}
-
-.hero h1 {
-    font-size: 5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin-bottom: 15px;
-    text-shadow: 2px 4px 10px rgba(0,0,0,0.6);
-}
-
-.hero p {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 40px;
-    text-shadow: 1px 2px 5px rgba(0,0,0,0.6);
-}
-
-.btn {
-    display: inline-block;
-    padding: 15px 40px;
-    background: #15803d; /* Yaşıl rəng təbiəti təmsil edir */
+.hero-overlay h2 {
     color: white;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(21, 128, 61, 0.4);
+    font-size: 3rem;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-.btn:hover {
-    background: #166534;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(21, 128, 61, 0.6);
+.info-header {
+    background: var(--box-bg);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
 }
 
-/* About Section */
-.about {
-    padding: 100px 0;
-    background: white;
+.description {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #334155;
+    flex: 1;
 }
 
-.about h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #1e293b;
-    position: relative;
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-.about h2::after {
-    content: '';
-    width: 60px;
-    height: 5px;
-    background: #15803d;
-    display: block;
-    margin: 15px auto 0;
-    border-radius: 5px;
-}
-
-.about-grid {
+/* Places Grid */
+.places-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    padding-bottom: 40px;
 }
 
-.about-grid .text p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #475569;
-    text-align: justify;
-}
-
-.about-grid .image img {
-    width: 100%;
-    border-radius: 24px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    transition: transform 0.5s ease;
-}
-
-.about-grid .image img:hover {
-    transform: scale(1.02);
-}
-
-/* Places Section */
-.places {
-    padding: 100px 0;
-}
-
-.places h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: #1e293b;
-}
-
-.places h2::after {
-    content: '';
-    width: 60px;
-    height: 5px;
-    background: #15803d;
-    display: block;
-    margin: 15px auto 0;
-    border-radius: 5px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-}
-
-.card {
+.place-card {
     background: white;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    transition: all 0.4s ease;
-    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+.place-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
 
-.card img {
-    width: 100%;
+.place-img-container {
     height: 250px;
+    overflow: hidden;
+}
+
+.place-card img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.card:hover img {
-    transform: scale(1.05); /* Şəkilə hover atanda bir az böyüsün */
+.place-card:hover img {
+    transform: scale(1.05);
 }
 
-.card-info {
-    padding: 30px;
-    position: relative;
-    background-color: white; /* overlay on scaled image */
+/* Responsive */
+@media (max-width: 900px) {
+    .app-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+        max-height: 250px;
+    }
+    .content-area {
+        padding: 20px;
+    }
+    .hero-image-container {
+        height: 220px;
+    }
+    .hero-overlay h2 {
+        font-size: 2.2rem;
+    }
 }
-
-.card-info h3 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: #0f172a;
-}
-
-.card-info p {
-    color: #64748b;
-    font-size: 1.05rem;
-}
-
-/* Footer */
-footer {
-    background: #0f172a;
-    color: #cbd5e1;
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 1rem;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 3.5rem; }
-    .hero p { font-size: 1.2rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about, .places { padding: 60px 0; }
-}
-
