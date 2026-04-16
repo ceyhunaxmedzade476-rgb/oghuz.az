@@ -26,15 +26,71 @@
 
         <!-- Əsas Məzmun -->
         <main class="content-area">
-            <div id="welcome-message" class="welcome-message">
-                <div style="position: relative; width: 100%; max-width: 600px; margin-bottom: 30px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); overflow: hidden;">
-                    <img src="https://images.unsplash.com/photo-1589309855584-3af9634e2ab9?auto=format&fit=crop&w=1200&q=80" alt="Bakı - Gecə Mənzərəsi" style="width: 100%; height: 350px; object-fit: cover; display: block;">
-                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 30px 20px 15px;">
-                        <span style="color: white; font-weight: 800; font-size: 1.5rem; letter-spacing: 2px;">BAKI, AZƏRBAYCAN</span>
+            <div id="welcome-message" class="welcome-message" style="justify-content: flex-start; padding-top: 10px;">
+                <!-- Hero Section - Baku -->
+                <div class="welcome-hero" style="position: relative; width: 100%; height: 320px; border-radius: 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); overflow: hidden; margin-bottom: 40px;">
+                    <img src="https://images.unsplash.com/photo-1589309855584-3af9634e2ab9?auto=format&fit=crop&w=1200&q=80" alt="Bakı - Gecə Mənzərəsi" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 24px;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%); padding: 50px; display: flex; flex-direction: column; justify-content: center; text-align: left;">
+                        <h2 style="font-size: 3rem; color: white; margin-bottom: 15px; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Azərbaycanı Kəşf Et</h2>
+                        <p style="font-size: 1.15rem; color: rgba(255,255,255,0.9); max-width: 550px; line-height: 1.6; text-shadow: 0 2px 5px rgba(0,0,0,0.5); font-weight: 500;">65 rayon, yüzlərlə tarixi abidə və təkrarsız təbiət mənzərələri. Səyahətə başlamaq üçün sol menudan bir rayon seçin və ya aşağıdakı sürətli keçidlərdən istifadə edin.</p>
+                        <span style="display: inline-block; margin-top: 20px; font-weight: 800; color: #e11d48; background: white; padding: 10px 25px; border-radius: 30px; width: fit-content; box-shadow: 0 4px 15px rgba(0,0,0,0.2); letter-spacing: 1px;">BAKI, AZƏRBAYCAN</span>
                     </div>
                 </div>
-                <h2 style="font-size: 2.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Azərbaycanın 65 İncisi</h2>
-                <p style="font-size: 1.15rem; font-weight: 500; text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Şəkillərini görmək və xəritədəki yerini tapmaq üçün sol menudan istənilən rayonun üzərinə klik edin.</p>
+
+                <!-- Stats Section -->
+                <div class="stats-container" style="display: flex; gap: 25px; width: 100%; margin-bottom: 40px;">
+                    <div class="stat-card">
+                        <h3 style="font-size: 2.8rem; color: white; margin-bottom: 5px;">65</h3>
+                        <p style="color: rgba(255,255,255,0.8); font-weight: 600; font-size: 1.1rem;">Rayon və Şəhər</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 style="font-size: 2.8rem; color: white; margin-bottom: 5px;">195+</h3>
+                        <p style="color: rgba(255,255,255,0.8); font-weight: 600; font-size: 1.1rem;">Gəzməli Məkan</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 style="font-size: 2.8rem; color: white; margin-bottom: 5px;">🗺️</h3>
+                        <p style="color: rgba(255,255,255,0.8); font-weight: 600; font-size: 1.1rem;">Real Xəritə Konumları</p>
+                    </div>
+                </div>
+
+                <!-- Quick Categories / Popular -->
+                <div style="width: 100%; text-align: left; margin-bottom: 20px;">
+                    <h3 style="color: white; font-size: 2rem; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); font-weight: 800;">🔥 Ən Çox Ziyarət Edilən Bölgələr</h3>
+                    <div class="popular-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px;">
+                        
+                        <div class="popular-card" onclick="selectDistrict('seki', null)">
+                            <img src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?auto=format&fit=crop&w=400&q=80" alt="Şəki">
+                            <div class="popular-overlay">
+                                <h4>Şəki</h4>
+                                <span>Tarixi İncisi</span>
+                            </div>
+                        </div>
+
+                        <div class="popular-card" onclick="selectDistrict('qebele', null)">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80" alt="Qəbələ">
+                            <div class="popular-overlay">
+                                <h4>Qəbələ</h4>
+                                <span>Təbiət Qoynu</span>
+                            </div>
+                        </div>
+
+                        <div class="popular-card" onclick="selectDistrict('quba', null)">
+                            <img src="https://images.unsplash.com/photo-1506905925234-a73c1787c9c0?auto=format&fit=crop&w=400&q=80" alt="Quba">
+                            <div class="popular-overlay">
+                                <h4>Quba</h4>
+                                <span>Dağlar Diyarı</span>
+                            </div>
+                        </div>
+
+                        <div class="popular-card" onclick="selectDistrict('lenkeran', null)">
+                            <img src="https://images.unsplash.com/photo-1518182170546-076616fdfaaf?auto=format&fit=crop&w=400&q=80" alt="Lənkəran">
+                            <div class="popular-overlay">
+                                <h4>Lənkəran</h4>
+                                <span>Cənub Əfsanəsi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Seçilmiş rayonun detalları burada görünəcək -->
