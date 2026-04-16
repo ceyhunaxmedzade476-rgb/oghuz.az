@@ -1,63 +1,13 @@
-<!DOCTYPE html>
-<html lang="az">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azərbaycan Rayonları - Gəzməli Yerlər</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header class="main-header">
-        <h1>Azərbaycanı Kəşf Et</h1>
-        <p>Bütün 65 rayonun məlumatları və xəritə mövqeləri</p>
-    </header>
+<div class="main-container">
+    <h2>Azərbaycanın Gəzməli Yerləri</h2>
+    
+    <select id="rayonSelect" onchange="rayonuGoster()">
+        <option value="">Rayon seçin...</option>
+        <option value="oguz">Oğuz</option>
+        <option value="gabala">Qəbələ</option>
+        <option value="sheki">Şəki</option>
+    </select>
 
-    <div class="app-container">
-        <!-- Rayon Seçimi Menyu (Kənar Panel) -->
-        <aside class="sidebar">
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Rayon axtar...">
-            </div>
-            <ul id="district-list" class="district-list">
-                <!-- JavaScript ilə doldurulacaq -->
-            </ul>
-        </aside>
-
-        <!-- Əsas Məzmun -->
-        <main class="content-area">
-            <div id="welcome-message" class="welcome-message">
-                <h2>Azərbaycanın 65 İncisi</h2>
-                <p>Şəkillərini görmək və xəritədəki yerini tapmaq üçün sol menudan istənilən rayonun üzərinə klik edin.</p>
-            </div>
-
-            <!-- Seçilmiş rayonun detalları burada görünəcək -->
-            <div id="district-details" class="district-details hidden">
-                <div class="hero-image-container">
-                    <img id="district-main-img" src="" alt="">
-                    <div class="hero-overlay">
-                        <h2 id="district-name">Rayon Adı</h2>
-                    </div>
-                </div>
-                
-                <div class="info-section">
-                    <div class="info-header">
-                        <p id="district-desc" class="description">Məlumat</p>
-                        <a id="district-map-link" href="#" target="_blank" class="map-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Xəritədə Bax
-                        </a>
-                    </div>
-                    
-                    <h3 class="section-title">Gözəl Mənzərələr</h3>
-                    <div id="places-grid" class="places-grid">
-                        <!-- Kartlar JavaScript ilə bura əlavə ediləcək -->
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <div id="resultsContainer" class="results-grid">
+        </div>
+</div>
