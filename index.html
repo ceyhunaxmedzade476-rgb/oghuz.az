@@ -10,13 +10,15 @@
 <body>
     <header class="main-header">
         <h1>Azərbaycanı Kəşf Et</h1>
-        <p>Rayonları seçin və onların gəzməli yerləri ilə tanış olun</p>
+        <p>Bütün 65 rayonun məlumatları və xəritə mövqeləri</p>
     </header>
 
     <div class="app-container">
         <!-- Rayon Seçimi Menyu (Kənar Panel) -->
         <aside class="sidebar">
-            <h2>Rayonlar</h2>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Rayon axtar...">
+            </div>
             <ul id="district-list" class="district-list">
                 <!-- JavaScript ilə doldurulacaq -->
             </ul>
@@ -25,8 +27,8 @@
         <!-- Əsas Məzmun -->
         <main class="content-area">
             <div id="welcome-message" class="welcome-message">
-                <h2>Bölgələrimizin Gözəllikləri</h2>
-                <p>Məlumat görmək və gəzməli yerləri kəşf etmək üçün sol menyudan bir rayon seçin.</p>
+                <h2>Azərbaycanın 65 İncisi</h2>
+                <p>Şəkillərini görmək və xəritədəki yerini tapmaq üçün sol menudan istənilən rayonun üzərinə klik edin.</p>
             </div>
 
             <!-- Seçilmiş rayonun detalları burada görünəcək -->
@@ -39,9 +41,15 @@
                 </div>
                 
                 <div class="info-section">
-                    <p id="district-desc" class="description">Məlumat</p>
+                    <div class="info-header">
+                        <p id="district-desc" class="description">Məlumat</p>
+                        <a id="district-map-link" href="#" target="_blank" class="map-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Xəritədə Bax
+                        </a>
+                    </div>
                     
-                    <h3 class="section-title">Gəzməli və Görməli Yerlər</h3>
+                    <h3 class="section-title">Gözəl Mənzərələr</h3>
                     <div id="places-grid" class="places-grid">
                         <!-- Kartlar JavaScript ilə bura əlavə ediləcək -->
                     </div>
